@@ -6,6 +6,35 @@
   <artifactId>Builds</artifactId>
   <version>1.0</version>
   <name>Builds</name>
+
+  <repositories>
+    <repository>
+      <id>jboss-nexus</id>
+      <name>JBoss Nexus</name>
+      <url>https://repository.jboss.org/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jboss-nexus</id>
+      <name>JBoss Nexus</name>
+      <url>https://repository.jboss.org/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>

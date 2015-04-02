@@ -38,13 +38,13 @@
 
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new demo.builds.BuildWorkItemHandler()</identifier>
+            <identifier>new io.fabric8.io.fabric8.build.workItems.BuildWorkItemHandler()</identifier>
             <parameters/>
             <name>BuildTrigger</name>
         </work-item-handler>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new demo.builds.StartProcessWorkItemHandler(ksession)</identifier>
+            <identifier>new io.fabric8.io.fabric8.build.workItems.StartProcessWorkItemHandler(ksession)</identifier>
             <parameters/>
             <name>StartBuildProcess</name>
         </work-item-handler>

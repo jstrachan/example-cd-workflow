@@ -102,7 +102,7 @@ public class BuildWorkItemHandler implements WorkItemHandler {
         }
         String port = System.getenv("CDELIVERY_SERVICE_PORT");
         if (port == null) {
-            port = "";
+            port = "8787";
         } else {
             port = ":" + port;
         }

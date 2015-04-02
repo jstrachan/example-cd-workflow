@@ -103,10 +103,8 @@ public class BuildWorkItemHandler implements WorkItemHandler {
         String port = System.getenv("CDELIVERY_SERVICE_PORT");
         if (port == null) {
             port = "8787";
-        } else {
-            port = ":" + port;
         }
-        return "http://" + host + port + "/triggerBuild";
+        return "http://" + host + (port.length() > 0 ? ":" : "") + port + "/triggerBuild";
     }
 
     protected void encodeJson(StringBuilder buffer, Object value) {

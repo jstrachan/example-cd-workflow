@@ -83,11 +83,11 @@ public class StartProcessWorkItemHandler implements WorkItemHandler {
     public void abortWorkItem(WorkItem workItem, WorkItemManager manager) {
     }
 
-    protected static void logInfo(String message) {
+    public static void logInfo(String message) {
         System.out.println(message);
     }
 
-    protected static void logError(String message, Exception e) {
+    public static void logError(String message, Exception e) {
         System.out.println("ERROR: "+ message + ". " + e);
         e.printStackTrace();
     }

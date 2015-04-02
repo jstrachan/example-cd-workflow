@@ -21,9 +21,17 @@ import org.kie.api.runtime.process.WorkItem;
 import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import static demo.builds.StartProcessWorkItemHandler.logError;
 
 /**
  */
@@ -55,8 +63,50 @@ public class BuildWorkItemHandler implements WorkItemHandler {
         buffer.append("}");
 
         String json = buffer.toString();
-
         System.out.println("About to post JSON: " + json);
+
+        String triggerBuildURL = createTriggerBuildURL();
+        try {
+            URL url = new URL(triggerBuildURL);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
+
+            OutputStreamWriter out = new OutputStreamWriter(
+                    connection.getOutputStream());
+            out.write(json);
+            out.close();
+
+/*
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String decodedString;
+            while ((decodedString = in.readLine()) != null) {
+                System.out.println(decodedString);
+            }
+            in.close();
+*/
+            int responseCode = connection.getResponseCode();
+            String responseMessage = connection.getResponseMessage();
+            System.out.println("Got response code: " + responseCode + " message: "+ responseMessage);
+        } catch (IOException e) {
+            logError("Failed to post to: " + triggerBuildURL + ". " + e, e);
+        }
+    }
+
+    protected String createTriggerBuildURL() {
+        String host = System.getenv("CDELIVERY_SERVICE_HOST");
+        if (host == null) {
+            host = "localhost";
+        }
+        String port = System.getenv("CDELIVERY_SERVICE_PORT");
+        if (port == null) {
+            port = "";
+        } else {
+            port = ":" + port;
+        }
+        return "http://" + host + port + "/triggerBuild";
     }
 
     protected void encodeJson(StringBuilder buffer, Object value) {

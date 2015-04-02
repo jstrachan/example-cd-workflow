@@ -44,7 +44,7 @@
         </work-item-handler>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new demo.builds.StartProcessWorkItemHandler()</identifier>
+            <identifier>new demo.builds.StartProcessWorkItemHandler(ksession)</identifier>
             <parameters/>
             <name>StartBuildProcess</name>
         </work-item-handler>

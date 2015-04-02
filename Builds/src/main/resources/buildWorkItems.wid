@@ -34,6 +34,7 @@ import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
         "startSignalName" : new StringDataType()
     ],
     "results" : [
+        "status" : new StringDataType()
     ],
     "displayName" : "StartBuildProcess",
     "category":"OpenShift",

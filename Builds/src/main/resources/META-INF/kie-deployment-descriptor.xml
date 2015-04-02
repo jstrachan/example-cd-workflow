@@ -38,13 +38,13 @@
 
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new demo.builds.trigger.BuildWorkItemHandler()</identifier>
+            <identifier>new demo.builds.BuildWorkItemHandler()</identifier>
             <parameters/>
             <name>BuildTrigger</name>
         </work-item-handler>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new demo.builds.trigger.StartProcessWorkItemHandler()</identifier>
+            <identifier>new demo.builds.StartProcessWorkItemHandler()</identifier>
             <parameters/>
             <name>StartBuildProcess</name>
         </work-item-handler>

@@ -34,12 +34,28 @@
             <parameters/>
             <name>Rest</name>
         </work-item-handler>
+
+
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new demo.builds.trigger.BuildWorkItemHandler()</identifier>
+            <parameters/>
+            <name>BuildTrigger</name>
+        </work-item-handler>
+        <work-item-handler>
+            <resolver>mvel</resolver>
+            <identifier>new demo.builds.trigger.StartProcessWorkItemHandler()</identifier>
+            <parameters/>
+            <name>StartBuildProcess</name>
+        </work-item-handler>
+<!--
         <work-item-handler>
             <resolver>mvel</resolver>
             <identifier>new io.fabric8.io.fabric8.workflow.build.trigger.BuildWorkItemHandler()</identifier>
             <parameters/>
             <name>BuildTrigger</name>
         </work-item-handler>
+-->
     </work-item-handlers>
     <environment-entries/>
     <configurations/>

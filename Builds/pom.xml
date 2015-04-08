@@ -7,6 +7,9 @@
   <version>1.0</version>
   <name>Builds</name>
 
+<!--
+  TODO lets avoid due to DNS issues on OpenShift
+
   <repositories>
     <repository>
       <id>jboss-nexus</id>
@@ -34,6 +37,7 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
+-->
 
   <dependencies>
     <dependency>
